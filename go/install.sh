@@ -3,7 +3,7 @@
 # This installs common tooling and libraries for Golang
 
 # tools that vs-code uses
-go get -u \
+go get -u -v \
     github.com/alecthomas/gometalinter \
     github.com/cweill/gotests/... \
     github.com/golang/lint/golint \
@@ -18,7 +18,7 @@ go get -u \
     sourcegraph.com/sqs/goreturns
 
 # other tools
-go get -u \
+go get -u -v \
     github.com/go-playground/overalls \
     github.com/golang/dep/... \
     github.com/kisielk/errcheck \
@@ -28,7 +28,7 @@ go get -u \
     honnef.co/go/tools/cmd/unused
 
 # libraries
-go get -u \
+go get -u -v \
     github.com/maxbrunsfeld/counterfeiter \
     github.com/campoy/jsonenums \
     github.com/stretchr/testify \

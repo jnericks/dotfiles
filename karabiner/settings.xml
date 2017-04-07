@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>Remap Caps Lock to Hyper</name>
+        <appendix>OS X doesn't have a Hyper. This maps caps lock (actually F19) to Control + Shift + Option + Command.</appendix>
+        <identifier>caps_lock_to_hyper</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::F19,
+            KeyCode::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+        </autogen>
+    </item>
+    <item>
+        <name>Hyper Bracket Volume Control</name>
+        <appendix>Hyper+[, Hyper+], Hyper+\ to Volume Down, Up, Mute</appendix>
+        <identifier>hyper.volume</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::VOLUME_DOWN
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::VOLUME_UP
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::BACKSLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            ConsumerKeyCode::VOLUME_MUTE
+        </autogen>
+    </item>
+    <item>
+        <name>Command_R Volume Control</name>
+        <appendix>Command_R+[, Command_R+], Command_R+\ to Volume Down, Up, Mute</appendix>
+        <identifier>command_r.volume</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R,
+            ConsumerKeyCode::VOLUME_DOWN
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R,
+            ConsumerKeyCode::VOLUME_UP
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::BACKSLASH, ModifierFlag::COMMAND_R,
+            ConsumerKeyCode::VOLUME_MUTE
+        </autogen>
+    </item>
+    <item>
+        <name>Hyper F Keys</name>
+        <appendix>Hyper+1, ..., Hyper+0, Hyper+-, Hyper+= to F1 ... F10, F11, F12 </appendix>
+        <identifier>hyper.fkeys</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::1, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F1
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::2, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F2
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::3, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F3
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::4, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F4
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::5, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F5
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::6, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F6
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::7, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F7
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::8, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F8
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::9, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F9
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::0, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F10
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::MINUS, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F11
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::EQUAL, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F12
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::DELETE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F13
+        </autogen>
+    </item>
+    <item>
+        <name>Hyper Brightness Control</name>
+        <appendix>Hyper+INS/DEL to Brightness +/-</appendix>
+        <identifier>hyper.brightness</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::HELP, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F15
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::FORWARD_DELETE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::F14
+        </autogen>
+    </item>
+    <item>
+        <name>Hyper Backquote</name>
+        <appendix>Hyper+Escape to `</appendix>
+        <identifier>hyper.backtick</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::ESCAPE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::BACKQUOTE
+        </autogen>
+    </item>
+</root>

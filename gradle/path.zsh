@@ -1,0 +1,1 @@
+export GRADLE_HOME=$HOME/.gradle

@@ -9,12 +9,6 @@ export DOTFILES=$HOME/.dotfiles
 # Set macOS defaults
 $DOTFILES/macos/set-defaults.sh
 
-# upgrade zsh
-if [ -x "$(command -v upgrade_oh_my_zsh)" ]; then
-    echo "› update zsh"
-    upgrade_oh_my_zsh
-fi
-
 # Fetch the newest version of Homebrew and all formulae from GitHub
 if [ -x "$(command -v brew)" ]; then
     echo "› update homebrew"
