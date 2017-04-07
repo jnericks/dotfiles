@@ -12,7 +12,7 @@ export PROJECTS=$HOME/dev
 # you'll have access to them in your scripts.
 if [[ -a $HOME/.localrc ]]
 then
-  echo "› source ${HOME}/.localrc"
+  # echo "› source ${HOME}/.localrc"
   source $HOME/.localrc
 fi
 
@@ -23,25 +23,25 @@ config_files=($DOTFILES/**/*.zsh)
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
-  echo "› source ${file}"
+  # echo "› source ${file}"
   source $file
 done
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  echo "› source ${file}"
+  # echo "› source ${file}"
   source $file
 done
 
 # load oh-my-zsh, includes autocomplete
-echo "› source ${ZSH}/oh-my-zsh.sh"
+# echo "› source ${ZSH}/oh-my-zsh.sh"
 source $ZSH/oh-my-zsh.sh
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  echo "› source ${file}"
+  # echo "› source ${file}"
   source $file
 done
 
