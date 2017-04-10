@@ -20,28 +20,30 @@ fi
 typeset -U config_files
 config_files=($DOTFILES/**/*.zsh)
 
-# load the path files
+# load path files
 for file in ${(M)config_files:#*/path.zsh}
 do
-  # echo "› source ${file}"
   source $file
 done
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+# load everything except for path, completion and aliases files
+for file in ${${${config_files:#*/path.zsh}:#*/completion.zsh}:#*/aliases.zsh}
 do
-  # echo "› source ${file}"
   source $file
 done
 
 # load oh-my-zsh, includes autocomplete
-# echo "› source ${ZSH}/oh-my-zsh.sh"
 source $ZSH/oh-my-zsh.sh
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  # echo "› source ${file}"
+  source $file
+done
+
+# load alias files last - to give chance for overriding any introduced by oh-my-zsh
+for file in ${(M)config_files:#*/aliases.zsh}
+do
   source $file
 done
 

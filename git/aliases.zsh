@@ -4,6 +4,7 @@
 # These are additional aliases not already included from above
 # or aliases that override the ones from above
 #
-alias gcb='git copy-branch-name'
+
+alias gcob="git checkout -b"
 alias gcmup="git checkout master && git pull --rebase --prune && git submodule update --init --recursive"
-alias gl='git pull --prune'
+alias glp='git pull --prune'
