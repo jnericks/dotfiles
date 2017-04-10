@@ -4,7 +4,13 @@
 # These are additional aliases not already included from above
 # or aliases that override the ones from above
 #
-
-alias gcob="git checkout -b"
-alias gcmup="git checkout master && git pull --rebase --prune && git submodule update --init --recursive"
-alias glp='git pull --prune'
+# most of the real aliases are found in the gitconfig.symlink and these are just alias
+# to the git aliases
+#
+alias gamend="git amend"
+alias gb="git b"
+alias gbcp="git bcp"
+alias gcmup="git cmup"
+alias gcob="git cob"
+alias gpuo="git puo"
+alias grv="git rv"

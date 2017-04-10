@@ -1,7 +1,12 @@
 [alias]
-        promote = !$DOTFILES/bin/git-promote
-        wtf     = !$DOTFILES/bin/git-wtf
-        rank-contributors = !$DOTFILES/bin/git-rank-contributors
+        amend   = !git add -A && git commit -a --amend
+        b       = branch
+        bcp     = !$DOTFILES/bin/git-copy-branch-name
+        cm      = checkout master
+        cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive
+        cob     = checkout -b
+        puo     = push -u origin HEAD
+        rv      = remote -v show origin
 [color]
         diff = auto
         status = auto
