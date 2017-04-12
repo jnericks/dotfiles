@@ -39,40 +39,37 @@
 
         # undo last commit without loses changes
         undo    = reset --soft HEAD^
-
 [color]
         diff = auto
         status = auto
         branch = auto
         ui = true
-
 [core]
         excludesfile = ~/.gitignore
         editor = vim
-
 [apply]
         whitespace = nowarn
-
 [mergetool]
         keepBackup = false
-
-# A nice little github-like colorful, split diff right in the console.
-# via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
 [diff]
         tool = icdiff
+        # A nice little github-like colorful, split diff right in the console.
+        # via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
 [difftool]
         prompt = false
 [difftool "icdiff"]
         cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
-
+[status]
+        showUntrackedFiles = all
+        # Sometimes a newly-added folder, since it's only one line in git status, can slip under the radar.
+        # https://git-scm.com/docs/git-config#git-config-statusshowUntrackedFiles
 [help]
-        autocorrect = 1
+        autoCorrect = 1
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
         default = simple
+        # "push the current branch back to the branch whose changes are usually integrated into the current branch"
+        # "refuse to push if the upstream branch’s name is different from the local one"
+        # https://git-scm.com/docs/git-config#git-config-pushdefault
 [user]
 	name = Jon Erickson
 	email = jon@ericksn.com
