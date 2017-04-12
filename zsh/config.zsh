@@ -13,7 +13,7 @@ HYPHEN_INSENSITIVE="true"
 DEFAULT_USER=qg3w
 ZSH_CUSTOM=$DOTFILES/zsh
 ZSH_THEME="jnericks"
-plugins=(aws brew command-not-found common-aliases docker git go gradle history httpie jira node npm osx sudo tig wd web-search z zsh_reload)
+plugins=(aws brew command-not-found common-aliases docker go gradle history httpie jira node npm osx sudo tig wd web-search z zsh_reload)
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP

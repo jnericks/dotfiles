@@ -11,7 +11,7 @@
 # VCS
 YS_VCS_PROMPT_PREFIX1=" %{$fg[white]%}on%{$reset_color%} "
 YS_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"
-YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
+YS_VCS_PROMPT_SUFFIX="%{$reset_color%} <$(git_current_user_email)>"
 YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}x"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}o"
 

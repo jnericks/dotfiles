@@ -1,26 +1,70 @@
 [alias]
-        amend   = !git add -A && git commit -a --amend
-        b       = branch
+        aa      = add -A                                # stage all unstaged
+        ca      = commit -a -v                          # all, verbose
+        cam     = commit -a -m                          # all, with msg
+        caa     = commit -a -v --amend                  # all, verbose, amend
+        caan    = commit -a -v --amend --no-edit        # all, verbose, amend, no-edit
+        caam    = commit -a -m --amend                  # all, with msg, amend
+
+        co      = checkout                              # checkout
+        cb      = checkout -b                           # checkout, new branch
+        cm      = checkout master                       # checkout master
+
+        p       = push                                  # push
+
+        # checkout, update and clean up master
+        cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
+
+        # list branches sorted by last modified
+        b       = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
+
+        # copy current branch name
         bcp     = !$DOTFILES/bin/git-copy-branch-name
-        cm      = checkout master
-        cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive
-        cob     = checkout -b
+
+        # colorful graph log
+        # https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
+        grog    = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+        # list aliases
+        la      = !git config -l | grep alias | cut -c 7-
+
+        # push current branch to remote with same name
         puo     = push -u origin HEAD
+
+        # show remote origin info
         rv      = remote -v show origin
+
+        # short status
+        st      = status -s
+
+        # undo last commit without loses changes
+        undo    = reset --soft HEAD^
+
 [color]
         diff = auto
         status = auto
         branch = auto
         ui = true
+
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+
 [apply]
         whitespace = nowarn
+
 [mergetool]
         keepBackup = false
+
+# A nice little github-like colorful, split diff right in the console.
+# via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
+[diff]
+        tool = icdiff
 [difftool]
         prompt = false
+[difftool "icdiff"]
+        cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+
 [help]
         autocorrect = 1
 [push]
