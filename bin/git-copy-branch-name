@@ -2,6 +2,6 @@
 #
 # Copy the current branch name to the clipboard.
 
-branch=$(git_current_branch)
+branch=$(git rev-parse --abbrev-ref HEAD)
 echo $branch
 echo $branch | pbcopy

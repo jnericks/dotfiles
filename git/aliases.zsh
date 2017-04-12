@@ -14,6 +14,6 @@ compdef g=git
 #   eg. git co  -> gco
 #       git cam -> gcam
 #       etc ...
-for al in $(git config -l | grep alias | cut -c 7- | cut -f1 -d "="); do
+for al in $(git config -l | grep ^alias\. | cut -c 7- | cut -f1 -d "="); do
     alias g$al="git $al"
 done
