@@ -11,12 +11,13 @@
 # VCS
 YS_VCS_PROMPT_PREFIX1=" %{$fg[white]%}on%{$reset_color%} "
 YS_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"
-YS_VCS_PROMPT_SUFFIX="%{$reset_color%} <$(git_current_user_email)>"
+YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
 YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}x"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}o"
 
 # Git info
 local git_info='$(git_prompt_info)'
+local git_user='$(git_current_user_email)'
 ZSH_THEME_GIT_PROMPT_PREFIX="${YS_VCS_PROMPT_PREFIX1}git${YS_VCS_PROMPT_PREFIX2}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="$YS_VCS_PROMPT_SUFFIX"
 ZSH_THEME_GIT_PROMPT_DIRTY="$YS_VCS_PROMPT_DIRTY"
@@ -53,6 +54,7 @@ $(battery-status)\
 %{$reset_color%}\
 [ %~ ]\
 %{$reset_color%}\
+ <${git_user}>\
 ${git_info}\
  $exit_code
 %{$terminfo[bold]$fg[red]%}› %{$reset_color%}"

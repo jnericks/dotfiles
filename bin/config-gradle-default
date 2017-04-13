@@ -1,6 +1,0 @@
-#!/bin/sh
-#
-
-echo "\
-org.gradle.daemon=true
-" > $GRADLE_HOME/gradle.properties

@@ -7,16 +7,17 @@
         caam    = commit -a -m --amend                  # all, with msg, amend
 
         co      = checkout                              # checkout
-        cb      = checkout -b                           # checkout, new branch
+        cob     = checkout -b                           # checkout, new branch
         cm      = checkout master                       # checkout master
 
-        p       = push                                  # push
+        b       = branch
+        p       = push
 
         # checkout, update and clean up master
         cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
 
         # list branches sorted by last modified
-        b       = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
+        lb      = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
 
         # copy current branch name
         bcp     = !$DOTFILES/bin/git-copy-branch-name
