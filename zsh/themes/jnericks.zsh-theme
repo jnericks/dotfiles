@@ -47,9 +47,11 @@ local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 # %{$fg[white]%}[%*] $exit_code
 # %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 
+local battery_status='$(battery-status)'
+
 # Custom
 PROMPT="
-$(battery-status)\
+${battery_status}\
 %{$fg[green]%}%* \
 %{$reset_color%}\
 [ %~ ]\
