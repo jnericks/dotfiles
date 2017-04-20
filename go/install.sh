@@ -24,6 +24,7 @@ go get -u -v \
     github.com/kisielk/errcheck \
     github.com/kyoh86/richgo \
     github.com/mvdan/interfacer/cmd/interfacer \
+    github.com/smartystreets/goconvey \
     honnef.co/go/tools/cmd/staticcheck \
     honnef.co/go/tools/cmd/unused
 

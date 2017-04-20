@@ -1,2 +1,2 @@
-alias grcb="./gradlew clean build"
-alias grcb!="rm -rf .gradle/ && ./gradlew clean build --refresh-dependencies"
+alias gdcb="./gradlew clean build"
+alias gdcb!="rm -rf .gradle/ && ./gradlew clean build --refresh-dependencies"

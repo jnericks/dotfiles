@@ -11,6 +11,7 @@
         cm      = checkout master                       # checkout master
 
         b       = branch
+        l       = log
         p       = push
 
         # checkout, update and clean up master
@@ -20,7 +21,7 @@
         lb      = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
 
         # copy current branch name
-        bcp     = !$DOTFILES/bin/git-copy-branch-name
+        cbn     = !$DOTFILES/bin/git-copy-branch-name
 
         # colorful graph log
         # https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
@@ -29,6 +30,9 @@
         # list aliases
         la      = !git config -l | grep alias | cut -c 7-
 
+        # create a pristine working dir
+        pristine= !git reset --hard && git clean -dfx
+
         # push current branch to remote with same name
         puo     = push -u origin HEAD
 
@@ -36,7 +40,7 @@
         rv      = remote -v show origin
 
         # short status
-        st      = status -s
+        sb      = status -sb
 
         # undo last commit without loses changes
         undo    = reset --soft HEAD^
