@@ -1,7 +1,7 @@
 [alias]
         aa      = add -A                                # stage all unstaged
-        ca      = commit -a -v                          # all, verbose
-        cam     = commit -a -m                          # all, with msg
+        ca      = !git add -A && git commit -av         # all, verbose
+        cam     = !git add -A && git commit -am         # all, with msg
         caa     = commit -a -v --amend                  # all, verbose, amend
         caan    = commit -a -v --amend --no-edit        # all, verbose, amend, no-edit
         caam    = commit -a -m --amend                  # all, with msg, amend
@@ -12,13 +12,15 @@
 
         b       = branch
         l       = log
+        cl      = "!f() { git log --no-merges --format='%h - %ar - %cn - %s' $1 --; }; f" # changelog
         p       = push
+        rbm     = rebase master
 
         # checkout, update and clean up master
         cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
 
         # list branches sorted by last modified
-        lb      = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
+        ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
 
         # copy current branch name
         cbn     = !$DOTFILES/bin/git-copy-branch-name
