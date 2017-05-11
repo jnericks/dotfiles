@@ -16,6 +16,9 @@
         p       = push
         rbm     = rebase master
 
+        # https://coderwall.com/p/euwpig/a-better-git-log
+        sl      = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
         # checkout, update and clean up master
         cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
 
@@ -23,11 +26,7 @@
         ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
 
         # copy current branch name
-        cbn     = !$DOTFILES/bin/git-copy-branch-name
-
-        # colorful graph log
-        # https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
-        grog    = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        cpb     = !$DOTFILES/bin/git-copy-branch-name
 
         # list aliases
         la      = !git config -l | grep alias | cut -c 7-
@@ -42,7 +41,7 @@
         rv      = remote -v show origin
 
         # short status
-        sb      = status -sb
+        st      = status -sb
 
         # undo last commit without loses changes
         undo    = reset --soft HEAD^
@@ -77,6 +76,12 @@
         # "push the current branch back to the branch whose changes are usually integrated into the current branch"
         # "refuse to push if the upstream branch’s name is different from the local one"
         # https://git-scm.com/docs/git-config#git-config-pushdefault
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /usr/local/Caskroom/sourcetree/2.2.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [user]
 	name = Jon Erickson
 	email = jon@ericksn.com

@@ -1,23 +1,5 @@
 # put your secrets here and remove the .example extension
 # zsh/localrc.symlink is ignored in the .gitignore
 
-# Network
-# export NORD_SSID=
-# export NORD_VPN_CLIENT_APP=
-# export NORD_HTTP_PROXY=
-# export NORD_HTTPS_PROXY=
-# export NORD_NO_PROXY=
-# export NORD_GIT_USER_NAME=
-# export NORD_GIT_USER_EMAIL=
-
-# Gradle
-# export NORD_GRADLE_HTTPS_PROXYHOST=
-# export NORD_GRADLE_HTTPS_PROXYPORT=
-# export NORD_GRADLE_HTTPS_NONPROXYHOSTS=
-# export NORD_GRADLE_HTTP_PROXYHOST=
-# export NORD_GRADLE_HTTP_PROXYPORT=
-# export NORD_GRADLE_HTTP_NONPROXYHOSTS=
-
-# API Tokens
-# export HOMEBREW_GITHUB_API_TOKEN=
-# export SLACK_API_TOKEN=
+# eg. API Tokens
+# export XXX_API_TOKEN=

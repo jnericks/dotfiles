@@ -1,2 +1,2 @@
 alias cls='clear'
-alias dotfiles='e $DOTFILES'
+alias df='e $DOTFILES'
