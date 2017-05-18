@@ -10,7 +10,9 @@ go get -u -v \
     github.com/lukehoban/go-outline \
     github.com/newhook/go-symbols \
     github.com/nsf/gocode \
+    github.com/ramya-rao-a/go-outline \
     github.com/rogpeppe/godef \
+    github.com/sourcegraph/go-langserver \
     github.com/tpng/gopkgs \
     github.com/zmb3/gogetdoc \
     golang.org/x/tools/cmd/gorename \
@@ -28,9 +30,12 @@ go get -u -v \
     honnef.co/go/tools/cmd/staticcheck \
     honnef.co/go/tools/cmd/unused
 
-# libraries
+# go generate tools
 go get -u -v \
     github.com/maxbrunsfeld/counterfeiter \
     github.com/campoy/jsonenums \
     github.com/stretchr/testify \
     golang.org/x/tools/cmd/stringer
+
+# update all Go Meta Linters
+gometalinter --install
