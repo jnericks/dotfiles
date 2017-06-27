@@ -1,4 +1,14 @@
 [alias]
+        b       = branch
+        l       = log
+        p       = push
+        rbm     = rebase master
+        st      = status -sb                            # short status
+
+        co      = checkout
+        cob     = checkout -b                           # checkout, new branch
+        cm      = checkout master                       # checkout master
+
         aa      = add -A                                # stage all unstaged
         ca      = !git add -A && git commit -av         # all, verbose
         cam     = !git add -A && git commit -am         # all, with msg
@@ -6,15 +16,8 @@
         caan    = commit -a -v --amend --no-edit        # all, verbose, amend, no-edit
         caam    = commit -a -m --amend                  # all, with msg, amend
 
-        co      = checkout                              # checkout
-        cob     = checkout -b                           # checkout, new branch
-        cm      = checkout master                       # checkout master
-
-        b       = branch
-        l       = log
-        cl      = "!f() { git log --no-merges --format='%h - %ar - %cn - %s' $1 --; }; f" # changelog
-        p       = push
-        rbm     = rebase master
+        # generate a changelog between 2 hashes (git changelog <HASH>..<HASH>)
+        changelog = "!f() { git log --no-merges --format='%h - %ar - %cn - %s' $1 --; }; f"
 
         # https://coderwall.com/p/euwpig/a-better-git-log
         sl      = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -28,7 +31,7 @@
         # copy current branch name
         cpb     = !$DOTFILES/bin/git-copy-branch-name
 
-        # list aliases
+        # list these aliases
         la      = !git config -l | grep alias | cut -c 7-
 
         # create a pristine working dir
@@ -39,9 +42,6 @@
 
         # show remote origin info
         rv      = remote -v show origin
-
-        # short status
-        st      = status -sb
 
         # undo last commit without loses changes
         undo    = reset --soft HEAD^

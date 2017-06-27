@@ -11,6 +11,12 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # Use AirDrop over every interface. srsly this should be a default.
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
+# Show hidden files in finder
+defaults write com.apple.finder AppleShowAllFiles YES
+
+# Hide desktop icons
+defaults write com.apple.finder CreateDesktop false
+
 # Always open everything in Finder's list view. This is important.
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 

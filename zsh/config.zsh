@@ -1,3 +1,5 @@
+set completion-ignore-case On
+
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 

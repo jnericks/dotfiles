@@ -7,6 +7,7 @@ go get -u -v \
     github.com/alecthomas/gometalinter \
     github.com/cweill/gotests/... \
     github.com/golang/lint/golint \
+    github.com/josharian/impl \
     github.com/lukehoban/go-outline \
     github.com/newhook/go-symbols \
     github.com/nsf/gocode \
