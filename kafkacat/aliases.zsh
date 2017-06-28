@@ -1,1 +1,1 @@
-alias kc="kafkacat"
+alias kk="kafkacat"
