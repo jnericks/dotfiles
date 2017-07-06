@@ -16,8 +16,8 @@
         caan    = commit -a -v --amend --no-edit        # all, verbose, amend, no-edit
         caam    = commit -a -m --amend                  # all, with msg, amend
 
-        # generate a changelog between 2 hashes (git changelog <HASH>..<HASH>)
-        changelog = "!f() { git log --no-merges --format='%h - %ar - %cn - %s' $1 --; }; f"
+        # generate a changelog between 2 hashes (git clog <HASH>..<HASH>)
+        clog    = "!f() { git log --no-merges --format='>>> %h - %ar - %aN%n%B' $1; }; f"
 
         # https://coderwall.com/p/euwpig/a-better-git-log
         sl      = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
