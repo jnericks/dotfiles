@@ -4,12 +4,15 @@
 #
 
 KARABINER_FILE="$HOME/Library/Application Support/Karabiner/private.xml"
+KARABINER_ELEMENTS_FILE="$HOME/.config/karabiner/karabiner.json"
 
 if [[ -f "$KARABINER_FILE" ]]; then
     rm -f "$KARABINER_FILE"
 fi
 
-ln -s "$DOTFILES/karabiner/settings.xml" "$KARABINER_FILE"
+if [[ -f "$KARABINER_ELEMENTS_FILE" ]]; then
+    rm -f "$KARABINER_ELEMENTS_FILE"
+fi
 
-# karabiner elements config file
-\cp $DOTFILES/karabiner/karabiner-elements-config.json $HOME/.config/karabiner/karabiner.json
+ln -s "$DOTFILES/karabiner/karabiner-config.xml" "$KARABINER_FILE"
+ln -s "$DOTFILES/karabiner/karabiner-elements-config.json" "$KARABINER_ELEMENTS_FILE"
