@@ -3,7 +3,7 @@
         l       = log
         p       = push
         rbm     = rebase master
-        st      = status -sb                            # short status
+        s       = status -sb
 
         co      = checkout
         cob     = checkout -b                           # checkout, new branch
@@ -19,11 +19,20 @@
         # generate a changelog between 2 hashes (git clog <HASH>..<HASH>)
         clog    = "!f() { git log --no-merges --format='>>> %h - %ar - %aN%n%B' $1; }; f"
 
+        # commits occuring N days ago (git hist N)
+        hist    = "!f() { git log --no-merges --format='>>> %h - %ar - %aN%n%B' --since='$1 days ago'; }; f"
+
         # https://coderwall.com/p/euwpig/a-better-git-log
         sl      = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
+        # update and clean current branch
+        up      = !git pull --rebase --prune && git submodule update --init --recursive
+
         # checkout, update and clean up master
         cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
+
+        # temporary for nordy anniversary
+        caup    = !git checkout AN2017-Develop && git pull --rebase --prune && git submodule update --init --recursive
 
         # list branches sorted by last modified
         ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
@@ -45,6 +54,7 @@
 
         # undo last commit without loses changes
         undo    = reset --soft HEAD^
+
 [color]
         diff = auto
         status = auto
