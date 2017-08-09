@@ -10,3 +10,6 @@ if [[ -f "$KARABINER_FILE" ]]; then
 fi
 
 ln -s "$DOTFILES/karabiner/settings.xml" "$KARABINER_FILE"
+
+# karabiner elements config file
+\cp $DOTFILES/karabiner/karabiner-elements-config.json $HOME/.config/karabiner/karabiner.json
