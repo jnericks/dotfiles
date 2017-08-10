@@ -9,7 +9,7 @@
 
 # git autocomplete with g alias
 # http://travisjeffery.com/b/2012/08/alias-in-zsh-with-completion/
-alias g='git'
+alias g="git"
 compdef g=git
 
 # Iterate all aliases defined in gitconfig.symlink and create short aliases for each
@@ -17,5 +17,5 @@ compdef g=git
 #       git cam -> gcam
 #       etc ...
 for al in $(git config -l | grep ^alias\. | cut -c 7- | cut -f1 -d '='); do
-    alias g$al='git $al'
+    alias g$al="git $al"
 done

@@ -9,5 +9,5 @@ config_git_default() {
     git config --global --replace-all user.name "Jon Erickson"
     git config --global --replace-all user.email "jon@ericksn.com"
 
-    reload-zsh-theme # prompt includes current git user email
+    reload_zsh_theme # prompt includes current git user email
 }

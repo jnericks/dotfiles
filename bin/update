@@ -7,7 +7,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # Set macOS defaults
-$DOTFILES/macos/set-defaults.sh
+"$DOTFILES/macos/set-defaults.sh"
 
 # Fetch the newest version of Homebrew and all formulae from GitHub
 if [ -x "$(command -v brew)" ]; then
@@ -17,4 +17,4 @@ fi
 
 # Install software
 echo "› $DOTFILES/script/install"
-$DOTFILES/script/install
+"$DOTFILES/script/install"

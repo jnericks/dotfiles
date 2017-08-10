@@ -13,7 +13,7 @@ export PROJECTS=$HOME/dev
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
-if [[ -a $HOME/.localrc ]]
+if [ -e "$HOME/.localrc" ]
 then
   # shellcheck disable=SC1090
   . "$HOME/.localrc"
@@ -59,19 +59,19 @@ done
 wireless_network=$(ssid)
 if [[ "$wireless_network" == "$NORD_SSID" ]]; then
     echo "› ssid: $wireless_network, applying nordstrom config"
-    config-proxy-nordstrom
-    config-git-nordstrom
-    config-gradle-nordstrom
+    config_proxy_nordstrom
+    config_git_nordstrom
+    config_gradle_nordstrom
 elif pgrep "$NORD_VPN_CLIENT_APP" > /dev/null; then
     echo "› ssid: $wireless_network (vpn), applying nordstrom config"
-    config-proxy-nordstrom
-    config-git-nordstrom
-    config-gradle-nordstrom
+    config_proxy_nordstrom
+    config_git_nordstrom
+    config_gradle_nordstrom
 else
     echo "› ssid: $wireless_network, applying default config"
-    config-proxy-default
-    config-git-default
-    config-gradle-default
+    config_proxy_default
+    config_git_default
+    config_gradle_default
 fi
 
 # cleanup
