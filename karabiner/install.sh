@@ -1,18 +1,13 @@
 #!/bin/sh
 #
-# symlinks the settings.xml file in this folder with where karabiner looks for the settings file
+# symlinks the karabiner-elements.json file in this folder with where
+# karabiner elements looks for its' config
 #
 
-KARABINER_FILE="$HOME/Library/Application Support/Karabiner/private.xml"
-KARABINER_ELEMENTS_FILE="$HOME/.config/karabiner/karabiner.json"
+ke_cfg="$HOME/.config/karabiner/karabiner.json"
 
-if [[ -f "$KARABINER_FILE" ]]; then
-    rm -f "$KARABINER_FILE"
+if [[ -f "$ke_cfg" ]]; then
+    rm -f "$ke_cfg"
 fi
 
-if [[ -f "$KARABINER_ELEMENTS_FILE" ]]; then
-    rm -f "$KARABINER_ELEMENTS_FILE"
-fi
-
-ln -s "$DOTFILES/karabiner/karabiner-config.xml" "$KARABINER_FILE"
-ln -s "$DOTFILES/karabiner/karabiner-elements-config.json" "$KARABINER_ELEMENTS_FILE"
+ln -s "$DOTFILES/karabiner/ke-config.json" "$ke_cfg"
