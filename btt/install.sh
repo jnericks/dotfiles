@@ -1,7 +1,9 @@
 #!/bin/sh
 #
-# symlinks the karabiner-elements.json file in this folder with where
-# karabiner elements looks for its' config
+# symlinks the BetterTouchTool config file in this folder with where
+# BetterTouchTool looks for its' config,
+#
+# any changes to the btt config should come from btt itself
 #
 
 btt_cfg="$HOME/Library/Preferences/com.hegenberg.BetterTouchTool.plist"
