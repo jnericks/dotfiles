@@ -1,3 +1,6 @@
+#!/bin/sh
+#
+
 set completion-ignore-case On
 
 export LSCOLORS="exfxcxdxbxegedabagacad"

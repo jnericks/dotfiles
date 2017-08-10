@@ -1,10 +1,13 @@
-config-gradle-default() {
+#!/bin/sh
+#
+
+config_gradle_default() {
     echo "\
     org.gradle.daemon=true
-    " > $GRADLE_HOME/gradle.properties
+    " > "$GRADLE_HOME/gradle.properties"
 }
 
-config-gradle-nordstrom() {
+config_gradle_nordstrom() {
     echo "\
     org.gradle.daemon=true
     systemProp.https.proxyHost=${NORD_GRADLE_HTTPS_PROXYHOST}
@@ -13,5 +16,5 @@ config-gradle-nordstrom() {
     systemProp.http.proxyHost=${NORD_GRADLE_HTTP_PROXYHOST}
     systemProp.http.proxyPort=${NORD_GRADLE_HTTP_PROXYPORT}
     systemProp.http.nonProxyHosts=${NORD_GRADLE_HTTP_NONPROXYHOSTS}
-    " > $GRADLE_HOME/gradle.properties
+    " > "$GRADLE_HOME/gradle.properties"
 }

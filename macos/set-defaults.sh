@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # Sets reasonable macOS defaults.
 #
 # The original idea (and a couple settings) were grabbed from:

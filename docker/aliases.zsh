@@ -1,2 +1,5 @@
-alias d='docker $*'
-alias d-c='docker-compose $*'
+#!/bin/sh
+#
+
+d() { 'docker $*'; }
+dc() { 'docker-compose $*'; }

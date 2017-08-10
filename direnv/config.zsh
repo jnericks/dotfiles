@@ -1,1 +1,4 @@
-eval "$(direnv hook zsh)"
+#!/bin/sh
+#
+
+eval '$(direnv hook zsh)'

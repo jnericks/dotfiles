@@ -8,8 +8,6 @@
 
 btt_cfg="$HOME/Library/Preferences/com.hegenberg.BetterTouchTool.plist"
 
-if [[ -f "$btt_cfg" ]]; then
-    rm -f "$btt_cfg"
-fi
+rm -f "$btt_cfg"
 
 ln -s "$DOTFILES/btt/com.hegenberg.BetterTouchTool.plist" "$btt_cfg"

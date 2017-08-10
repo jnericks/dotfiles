@@ -1,4 +1,7 @@
-config-git-default() {
+#! /bin/sh
+#
+
+config_git_default() {
     git config --global http.proxy ""
     git config --global https.proxy ""
     git config --global --remove-section http
