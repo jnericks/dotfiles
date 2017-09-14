@@ -59,19 +59,13 @@ done
 wireless_network=$(ssid)
 if [[ "$wireless_network" == "$NORD_SSID" ]]; then
     echo "› ssid: $wireless_network, applying nordstrom config"
-    config_proxy_nordstrom
     config_git_nordstrom
-    config_gradle_nordstrom
 elif pgrep "$NORD_VPN_CLIENT_APP" > /dev/null; then
     echo "› ssid: $wireless_network (vpn), applying nordstrom config"
-    config_proxy_nordstrom
     config_git_nordstrom
-    config_gradle_nordstrom
 else
     echo "› ssid: $wireless_network, applying default config"
-    config_proxy_default
     config_git_default
-    config_gradle_default
 fi
 
 # cleanup
