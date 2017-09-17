@@ -1,5 +1,7 @@
 #!/bin/sh
 #
 
-alias gdcb="./gradlew clean build"
-alias gdcb!="rm -rf .gradle/ && ./gradlew clean build --refresh-dependencies"
+alias gw="./gradlew"
+alias gwcb="./gradlew clean build"
+alias gwt="./gradlew test"
+alias gwcb!="rm -rf .gradle/ && ./gradlew clean build --refresh-dependencies"
