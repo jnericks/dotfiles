@@ -14,7 +14,7 @@ go get -u -v \
   github.com/ramya-rao-a/go-outline \
   github.com/rogpeppe/godef \
   github.com/sourcegraph/go-langserver \
-  github.com/tpng/gopkgs \
+  github.com/uudashr/gopkgs/cmd/gopkgs \
   github.com/zmb3/gogetdoc \
   golang.org/x/tools/cmd/gorename \
   golang.org/x/tools/cmd/guru \

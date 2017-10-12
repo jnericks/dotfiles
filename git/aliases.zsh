@@ -19,3 +19,6 @@ compdef g=git
 for al in $(git config -l | grep ^alias\. | cut -c 7- | cut -f1 -d '='); do
     alias g$al="git $al"
 done
+
+# alias that require being run in current shell
+alias gcd='cd "$(git root)"'

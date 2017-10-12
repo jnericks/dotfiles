@@ -1,59 +1,48 @@
 [alias]
-        b       = branch
-        l       = log
-        p       = push
-        rbm     = rebase master
-        s       = status -sb
+        # extra commands available from git-extras
+        # git extras --help
+        # https://github.com/tj/git-extras/blob/master/Commands.md
 
-        co      = checkout
-        cob     = checkout -b                           # checkout, new branch
-        cm      = checkout master                       # checkout master
-
-        aa      = add -A                                # stage all unstaged
-        ca      = !git add -A && git commit -av         # all, verbose
-        cam     = !git add -A && git commit -am         # all, with msg
-        caa     = commit -a -v --amend                  # all, verbose, amend
-        caan    = commit -a -v --amend --no-edit        # all, verbose, amend, no-edit
-        caam    = commit -a -m --amend                  # all, with msg, amend
+        a               = add
+        aa              = add -A
+        b               = branch
+        ba              = branch -a
+        bd              = branch -D
+        b-merged        = !git show-merged-branches
+        b-unmerged      = !git show-unmerged-branches
+        co              = checkout
+        cob             = checkout -b
+        com             = checkout master
+        cp              = cherry-pick
+        ca              = commit -a -m
+        caa             = commit -a -v --amend
+        caan            = commit -a -v --amend --no-edit
+        d               = diff
+        l               = log --pretty='format:%Cgreen%h%Creset %an - %s' --graph
+        m               = merge --no-ff
+        pom             = pull origin master
+        p               = push
+        pt              = push --tags
+        puo             = push -u origin HEAD                   # push current branch to remote with same name
+        rbm             = rebase master
+        ro              = remote -v show origin
+        rh              = reset --hard                          # reset working directory
+        rhc             = !git reset --hard && git clean -dfx   # reset & clean working directory
+        root            = rev-parse --show-toplevel
+        st              = status
+        sb              = status -sb
 
         # generate a changelog between 2 hashes (git clog <HASH>..<HASH>)
         clog    = "!f() { git log --no-merges --format='>>> %h - %ar - %aN%n%B' $1; }; f"
 
-        # commits occuring N days ago (git hist N)
-        hist    = "!f() { git log --no-merges --format='>>> %h - %ar - %aN%n%B' --since='$1 days ago'; }; f"
-
-        # https://coderwall.com/p/euwpig/a-better-git-log
-        sl      = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
-        # update and clean current branch
-        up      = !git pull --rebase --prune && git submodule update --init --recursive
-
         # checkout, update and clean up master
         cmup    = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
-
-        # temporary for nordy anniversary
-        caup    = !git checkout AN2017-Develop && git pull --rebase --prune && git submodule update --init --recursive
 
         # list branches sorted by last modified
         ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
 
         # copy current branch name
-        cpb     = !$DOTFILES/bin/git-copy-branch-name
-
-        # list these aliases
-        la      = !git config -l | grep alias | cut -c 7-
-
-        # create a pristine working dir
-        pristine= !git reset --hard && git clean -dfx
-
-        # push current branch to remote with same name
-        puo     = push -u origin HEAD
-
-        # show remote origin info
-        rv      = remote -v show origin
-
-        # undo last commit without loses changes
-        undo    = reset --soft HEAD^
+        cb      = !$DOTFILES/bin/git-copy-branch-name
 
 [color]
         diff = auto
