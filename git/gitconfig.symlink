@@ -83,5 +83,5 @@
 	cmd = /usr/local/Caskroom/sourcetree/2.2.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = Jon Erickson
-	email = jon@ericksn.com
+	name = Erickson, Jon
+	email = jon.erickson@nordstrom.com
