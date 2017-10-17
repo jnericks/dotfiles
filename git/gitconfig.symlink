@@ -25,11 +25,12 @@
         pt              = push --tags
         puo             = push -u origin HEAD                   # push current branch to remote with same name
         rbm             = rebase master
-        ro              = remote -v show origin
+        rv              = remote -v
+        rvo             = remote -v show origin
         rh              = reset --hard                          # reset working directory
         rhc             = !git reset --hard && git clean -dfx   # reset & clean working directory
         root            = rev-parse --show-toplevel
-        st              = status
+        s               = status                                # overrides ghostscript
         sb              = status -sb
 
         # generate a changelog between 2 hashes (git clog <HASH>..<HASH>)
