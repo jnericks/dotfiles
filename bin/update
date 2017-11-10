@@ -4,17 +4,29 @@
 #
 # `update` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
+#
+# Referencecs
+# - https://medium.com/@waxzce/keeping-macos-clean-this-is-my-osx-brew-update-cli-command-6c8f12dc1731
+
+set -ex
+
 export DOTFILES=$HOME/.dotfiles
 
 # Set macOS defaults
 "$DOTFILES/macos/set-defaults.sh"
 
-# Fetch the newest version of Homebrew and all formulae from GitHub
-if [ -x "$(command -v brew)" ]; then
-    echo "› update homebrew"
-    brew update
-fi
+brew update
+# brew upgrade
+brew bundle --file="$DOTFILES/Brewfile"
+brew bundle cleanup --file="$DOTFILES/Brewfile" --force
+brew cleanup -s
+brew cask cleanup
+brew prune
+brew doctor
+brew missing
 
 # Install software
 echo "› $DOTFILES/script/install"
 "$DOTFILES/script/install"
+
+terminal-notifier -message "update complete"

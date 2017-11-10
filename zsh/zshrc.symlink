@@ -59,13 +59,13 @@ done
 wireless_network=$(ssid)
 if [[ "$wireless_network" == "$NORD_SSID" ]]; then
     echo "› ssid: $wireless_network, applying nordstrom config"
-    config_git_nordstrom
+    _config_git_nordstrom
 elif pgrep "$NORD_VPN_CLIENT_APP" > /dev/null; then
     echo "› ssid: $wireless_network (vpn), applying nordstrom config"
-    config_git_nordstrom
+    _config_git_nordstrom
 else
     echo "› ssid: $wireless_network, applying default config"
-    config_git_default
+    _config_git_default
 fi
 
 # cleanup
