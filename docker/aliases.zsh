@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+
+alias d="docker"
+alias dm="docker-machine"
