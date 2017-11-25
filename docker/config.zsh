@@ -1,4 +1,5 @@
 #!/bin/sh
 #
 
-eval "$(docker-machine env dev)"
+#shellcheck disable=SC2046
+eval $(docker-machine env default)
