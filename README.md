@@ -21,7 +21,13 @@ There's a few special files in the hierarchy.
 
 ## install
 
-Run this:
+### Prerequisites for fresh install
+* Ensure you have Admin Rights to your MacBook (Settings > Users & Groups > Allow user to administer this computer)
+* Install [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh) (will prompt to install Git/Xcode)
+* Install [Homebrew](https://brew.sh/)
+* Install [Golang](https://golang.org/dl/) (preference is to install manually without using Homebrew)
+
+### Run this:
 
 ```sh
 git clone https://github.com/jnericks/dotfiles.git ~/.dotfiles
