@@ -10,6 +10,20 @@ _reload_zsh_theme() {
     . "$ZSH_THEME_FILE"
 }
 
+# cli markdown
+rmd() {
+    file="$1"
+    if [ ! -f "$file" ]; then
+        echo "'$file' does not exist"
+        return 1
+    fi
+    if [ ! "${file##*.}" = "md" ]; then
+        echo "'$file' is not a markdown file"
+        return 1
+    fi
+    pandoc -t html "$file" | lynx -stdin
+}
+
 # logbook
 lb() {
     page="$HOME/Dropbox/logbook/$(date '+%Y-%m-%d').md"
