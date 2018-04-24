@@ -3,50 +3,34 @@
         # git extras --help
         # https://github.com/tj/git-extras/blob/master/Commands.md
 
-        a               = add
         aa              = add -A
-        b               = branch
-        ba              = branch -a
-        bd              = branch -D
-        b-merged        = !git show-merged-branches
-        b-unmerged      = !git show-unmerged-branches
+        cm              = !git add -A && git commit -a -m
+        cma             = !git add -A && git commit -a -m --amend
+        cman            = !git add -A && git commit -a --amend --no-edit
+        cv              = !git add -A && git commit -a -v
+        cva             = !git add -A && git commit -a -v --amend
+
+        p               = push
+        puo             = push -u origin HEAD # push current branch to remote with same name
+
         co              = checkout
         cob             = checkout -b
         com             = checkout master
-        cp              = cherry-pick
-        ca              = commit -a -m
-        caa             = commit -a -v --amend
-        caan            = commit -a -v --amend --no-edit
-        cm              = !git add -A && git commit -a -m
-        cv              = !git add -A && git commit -a -v
-        d               = diff
-        l               = log --pretty='format:%Cgreen%h%Creset %an - %s' --graph
-        m               = merge --no-ff
-        pom             = pull origin master
-        p               = push
-        pt              = push --tags
-        puo             = push -u origin HEAD                   # push current branch to remote with same name
-        rbm             = rebase master
-        rv              = remote -v
-        rvo             = remote -v show origin
+
+        # checkout, update and clean up master
+        mup             = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
+
+        b               = branch
+        copy            = !$DOTFILES/bin/git-copy-branch-name # copy current branch name
+        l               = log --color=auto --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
         rh              = reset --hard                          # reset working directory
         rhc             = !git reset --hard && git clean -dfx   # reset & clean working directory
         pristine        = !git reset --hard && git clean -dfx   # reset & clean working directory
         root            = rev-parse --show-toplevel
-        s               = status                                # overrides ghostscript
-        sb              = status -sb
-
-        # generate a changelog between 2 hashes (git clog <HASH>..<HASH>)
-        clog    = "!f() { git log --no-merges --format='>>> %h - %ar - %aN%n%B' $1; }; f"
-
-        # checkout, update and clean up master
-        mup     = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
+        s               = status -sb                            # short status, overrides ghostscript
 
         # list branches sorted by last modified
         ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
-
-        # copy current branch name
-        cb      = !$DOTFILES/bin/git-copy-branch-name
 
 [color]
         diff = auto

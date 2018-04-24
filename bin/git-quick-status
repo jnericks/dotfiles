@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# inspried from: https://github.com/tj/git-extras/blob/master/bin/git-info
+
+most_recent_commit() {
+  git log --max-count=1 --pretty=short
+}
+
+local_branches() {
+  git branch
+}
+
+remote_urls() {
+  git remote -v
+}
+
+short_status() {
+  git status -sb
+}
+
+echon() {
+    echo "$@"
+    echo
+}
+
+echo
+echon "## Remote URLs:"
+echon "$(remote_urls)"
+
+echon "## Local Branches:"
+echon "$(local_branches)"
+
+echon "## Most Recent Commit:"
+echon "$(most_recent_commit)"
+
+echon "## Status:"
+echon "$(short_status)"

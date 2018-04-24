@@ -6,6 +6,7 @@
 go get -u -v \
   github.com/alecthomas/gometalinter \
   github.com/cweill/gotests/... \
+  github.com/derekparker/delve/cmd/dlv \
   github.com/golang/lint/golint \
   github.com/josharian/impl \
   github.com/lukehoban/go-outline \
@@ -22,8 +23,10 @@ go get -u -v \
 
 # other tools
 go get -u -v \
+  github.com/go-kit/kit/... \
   github.com/go-playground/overalls \
   github.com/golang/dep/... \
+  github.com/golang/protobuf/protoc-gen-go \
   github.com/kisielk/errcheck \
   github.com/kyoh86/richgo \
   github.com/mvdan/interfacer/cmd/interfacer \
