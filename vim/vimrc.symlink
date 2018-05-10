@@ -1,4 +1,11 @@
 syntax on
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+set nu " number lines
+set rnu " relative line numbering
+set ruler " show current position in file
+
+" use 4 spaces instead of tabs during formatting
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4

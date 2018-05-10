@@ -1,6 +1,9 @@
 #! /bin/sh
 #
 
+# use cat when printing results of git commands (eg. git branch, git diff)
+export GIT_PAGER=cat
+
 _config_git_default() {
     git config --global --replace-all user.name "Jon Erickson"
     git config --global --replace-all user.email "jon@ericksn.com"
