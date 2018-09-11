@@ -4,28 +4,29 @@
         # https://github.com/tj/git-extras/blob/master/Commands.md
 
         aa              = add -A
-        cm              = !git add -A && git commit -a -m
-        cma             = !git add -A && git commit -a -m --amend
-        cman            = !git add -A && git commit -a --amend --no-edit
-        cv              = !git add -A && git commit -a -v
-        cva             = !git add -A && git commit -a -v --amend
+        cm              = commit -m
+        cma             = commit -a -m
+        ca              = commit --amend --no-edit
+        cam             = commit --amend
+        caa             = !git add -A && git commit --amend --no-edit
 
-        p               = push
-        puo             = push -u origin HEAD # push current branch to remote with same name
+        ps              = push
+        psb             = push -u origin HEAD                   # push current branch to remote with same name
+        psf             = push --force-with-lease
+
+        pl              = pull --rebase
+        mpl             = !git checkout master && git pull --rebase
 
         co              = checkout
         cob             = checkout -b
-        com             = checkout master
 
-        # checkout, update and clean up master
-        mup             = !git checkout master && git pull --rebase --prune && git submodule update --init --recursive && git delete-merged-branches
+        rb              = rebase
+        rba             = rebase --abort
+        rbc             = rebase --continue
 
         b               = branch
-        copy            = !$DOTFILES/bin/git-copy-branch-name # copy current branch name
         l               = log --color=auto --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-        rh              = reset --hard                          # reset working directory
         rhc             = !git reset --hard && git clean -dfx   # reset & clean working directory
-        pristine        = !git reset --hard && git clean -dfx   # reset & clean working directory
         root            = rev-parse --show-toplevel
         s               = status -sb                            # short status, overrides ghostscript
 
@@ -70,5 +71,5 @@
 	cmd = /usr/local/Caskroom/sourcetree/2.2.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = Jon Erickson
-	email = jon@ericksn.com
+	name = Erickson, Jon
+	email = jon.erickson@nordstrom.com

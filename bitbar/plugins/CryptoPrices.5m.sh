@@ -39,5 +39,11 @@ xrp_icon='iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADHklEQVR4nH2TzW9UZRTGn/
 btc_price=$(curl -s "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD&limit=1" | /usr/local/bin/jq -r .[0].price_usd)
 xrp_price=$(curl -s "https://api.coinmarketcap.com/v1/ticker/ripple/?convert=USD&limit=1" | /usr/local/bin/jq -r .[0].price_usd)
 
-echo "$btc_price | templateImage=$btc_icon"
-printf "%.*f | image=%s\n" 5 "$xrp_price" "$xrp_icon"
+# echo "$btc_price | templateImage=$btc_icon"
+# printf "%.*f | image=%s\n" 5 "$xrp_price" "$xrp_icon"
+
+btc=$(printf "%.2f" "$btc_price")
+xrp=$(printf "%.4f" "$xrp_price")
+
+echo "$btc | templateImage=$btc_icon"
+echo "$xrp | templateImage=$xrp_icon"

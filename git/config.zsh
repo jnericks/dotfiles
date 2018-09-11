@@ -17,3 +17,10 @@ _config_git_nordstrom() {
 
     _reload_zsh_theme # prompt includes current git user email
 }
+
+_config_git_google() {
+    git config --global --replace-all user.name "Jon Erickson"
+    git config --global --replace-all user.email "jmerickson@gmail.com"
+
+    _reload_zsh_theme # prompt includes current git user email
+}
