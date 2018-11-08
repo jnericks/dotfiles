@@ -50,11 +50,20 @@ local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 local battery_status='$(battery_pct_prompt)'
 
 # Custom
+# PROMPT="
+# ${battery_status} \
+# %{$fg[cyan]%}%*%{$reset_color%} \
+# %{$fg[green]%}${git_user}%{$reset_color%} \
+# [ %~ ]%{$reset_color%}\
+# ${git_info}\
+#  $exit_code
+# %{$terminfo[bold]$fg[red]%}›%{$reset_color%} "
+
 PROMPT="
-${battery_status} \
-%{$fg[cyan]%}%*%{$reset_color%} \
 %{$fg[green]%}${git_user}%{$reset_color%} \
 [ %~ ]%{$reset_color%}\
 ${git_info}\
  $exit_code
 %{$terminfo[bold]$fg[red]%}›%{$reset_color%} "
+
+RPROMPT="%{$fg[cyan]%}%*%{$reset_color%} ${battery_status}"

@@ -1,34 +1,21 @@
 #!/bin/sh
 #
+# shellcheck disable=SC1090
 
 _config_proxy_default() {
     unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
 }
 
 _reload_zsh_theme() {
-    # shellcheck disable=SC1090
     . "$ZSH_THEME_FILE"
 }
 
-# cli markdown
-rmd() {
-    file="$1"
-    if [ ! -f "$file" ]; then
-        echo "'$file' does not exist"
-        return 1
+_check_cert_expiration() {
+    # https://www.shellhacks.com/openssl-check-ssl-certificate-expiration-date/
+    if [ -z "$1" ]
+    then
+        echo "no server passed in (eg. google.com)"
+        return
     fi
-    if [ ! "${file##*.}" = "md" ]; then
-        echo "'$file' is not a markdown file"
-        return 1
-    fi
-    pandoc -t html "$file" | lynx -stdin
-}
-
-# logbook
-lb() {
-    page="$HOME/Dropbox/logbook/$(date '+%Y-%m-%d').md"
-    if [ ! -f "$page" ]; then
-        echo "# $(date '+%A, %B %d, %Y')" > "$page"
-    fi
-    e "$page"
+    echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -dates
 }

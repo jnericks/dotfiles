@@ -4,25 +4,21 @@
         # https://github.com/tj/git-extras/blob/master/Commands.md
 
         aa              = add -A
-        cm              = commit -m
-        cma             = commit -a -m
-        ca              = commit --amend --no-edit
-        cam             = commit --amend
-        caa             = !git add -A && git commit --amend --no-edit
+        cm              = !git add -A && git commit -a -m
+        ca              = !git add -A && git commit --amend --no-edit
+        cam             = !git add -A && git commit --amend
 
         ps              = push
-        psb             = push -u origin HEAD                   # push current branch to remote with same name
-        psf             = push --force-with-lease
+        psb             = push -u origin HEAD  # push current branch to remote with same name
 
         pl              = pull --rebase
+        plm             = !git checkout master && git pull --rebase
         mpl             = !git checkout master && git pull --rebase
 
         co              = checkout
         cob             = checkout -b
 
         rb              = rebase
-        rba             = rebase --abort
-        rbc             = rebase --continue
 
         b               = branch
         l               = log --color=auto --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -71,5 +67,5 @@
 	cmd = /usr/local/Caskroom/sourcetree/2.2.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = Erickson, Jon
-	email = jon.erickson@nordstrom.com
+	name = Jon Erickson
+	email = jon@ericksn.com
