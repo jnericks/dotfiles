@@ -1,3 +1,6 @@
+#! /bin/sh
+#
+
 # modified version of the ys.zsh-theme
 #
 
