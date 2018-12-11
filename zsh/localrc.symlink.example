@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # put your secrets here and remove the .example extension
 # zsh/localrc.symlink is ignored in the .gitignore
 
