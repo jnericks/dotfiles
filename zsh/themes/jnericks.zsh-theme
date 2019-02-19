@@ -72,23 +72,19 @@ ${git_info}\
 RPROMPT="%{$fg[cyan]%}%*%{$reset_color%} ${battery_status}"
 
 function preexec() {
-    RP_START_S=$(gdate +%s)
-    RP_START_MS=$(gdate +%3N)
+    RP_START_S=$SECONDS
 }
 
 function precmd() {
   if [ $RP_START_S ]; then
-    RP_END_S=$(gdate +%s)
-    RP_END_MS=$(gdate +%3N)
+    RP_END_S=$SECONDS
     RP_DIFF_S=$(echo "$RP_END_S - $RP_START_S" | bc)
-    RP_DIFF_MS=$(echo "$RP_END_MS - $RP_START_MS" | bc)
     timer_display=""
     if [ "$RP_DIFF_S" -gt 0 ]; then
         timer_display="${RP_DIFF_S}s"
     fi
-    timer_display="${timer_display}${RP_DIFF_MS}ms"
     RPROMPT="%F{yellow}${timer_display} %{$reset_color%} %{$fg[cyan]%}%*%{$reset_color%} ${battery_status}"
     # export RPROMPT="%F{cyan}${timer_display}s %{$reset_color%}"
-    unset RP_START_S RP_START_MS
+    unset RP_START_S RP_END_S RP_DIFF_S
   fi
 }

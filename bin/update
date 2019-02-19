@@ -10,7 +10,8 @@
 
 set -ex
 
-export DOTFILES=$HOME/.dotfiles
+# Upgrade oh-my-zsh
+env ZSH=$ZSH sh $ZSH/tools/upgrade.sh
 
 # Set macOS defaults
 "$DOTFILES/macos/set-defaults.sh"
@@ -30,10 +31,7 @@ brew bundle cleanup --file="$DOTFILES/Brewfile" --force
 
 # For all installed or specific formulae, remove any older versions from the
 # cellar. In addition, old downloads from the Homebrew download-cache are deleted.
-brew cleanup -s
-
-# Cleans up cached downloads and tracker symlinks.
-brew cask cleanup
+brew cleanup
 
 # Check your system for potential problems. Doctor exits with a non-zero status
 # if any potential problems are found. Please note that these warnings are just
