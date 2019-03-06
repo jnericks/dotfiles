@@ -29,6 +29,11 @@
         # list branches sorted by last modified
         ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
 
+        # aliases for sripts in $DOTFILES/bin
+        rmmerged        = git branch-delete-merged
+        cpbr            = git copy-branch-name
+        qs              = git quick-status
+
 [color]
         diff = auto
         status = auto
