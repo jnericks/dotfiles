@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 
 # From http://dotfiles.org/~_why/.zshrc

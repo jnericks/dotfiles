@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Usage: extract <file>
 # Description: extracts archived files / mounts disk images

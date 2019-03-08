@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Assuming docker-machine named 'default' already exists
 #

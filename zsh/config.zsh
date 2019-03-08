@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 
 set completion-ignore-case On

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 
 # Pipe my public key to my clipboard.

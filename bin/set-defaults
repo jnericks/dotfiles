@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Sets macOS defaults by running $DOTFILES/macos/set-defaults.sh.
 
