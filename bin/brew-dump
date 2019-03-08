@@ -1,4 +1,0 @@
-#!/bin/sh
-#
-
-brew bundle dump --force --file=$DOTFILES/Brewfile
