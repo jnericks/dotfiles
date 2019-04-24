@@ -51,3 +51,5 @@ then
   # shellcheck disable=SC1090
   . "$HOME/.localrc"
 fi
+
+compinit

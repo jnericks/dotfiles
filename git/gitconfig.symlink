@@ -28,49 +28,45 @@
 
         # list branches sorted by last modified
         ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
-
-        # aliases for sripts in $DOTFILES/bin
-        rmmerged        = git branch-delete-merged
-        cpbr            = git copy-branch-name
-        qs              = git quick-status
-
+  
+        # git difftool
+        showtool = "!f() { git difftool $1^ $1; }; f"
+        added = difftool --cached
+[apply]
+        whitespace = nowarn
 [color]
         diff = auto
         status = auto
         branch = auto
-        ui = true
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [core]
         excludesfile = ~/.gitignore
         editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[diff]
-        tool = icdiff
-        # A nice little github-like colorful, split diff right in the console.
-        # via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
-[difftool]
-        prompt = false
-[difftool "icdiff"]
-        cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
-[status]
-        showUntrackedFiles = all
-        # Sometimes a newly-added folder, since it's only one line in git status, can slip under the radar.
-        # https://git-scm.com/docs/git-config#git-config-statusshowUntrackedFiles
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [help]
         autoCorrect = 1
+[mergetool]
+        keepBackup = false
 [push]
+        # in centralized workflow, work like upstream with an added safety to refuse to push if the upstream branch’s name is different from the local one.
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault
         default = simple
-        # "push the current branch back to the branch whose changes are usually integrated into the current branch"
-        # "refuse to push if the upstream branch’s name is different from the local one"
-        # https://git-scm.com/docs/git-config#git-config-pushdefault
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /usr/local/Caskroom/sourcetree/2.2.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[status]
+        # Sometimes a newly-added folder, since it's only one line in git status, can slip under the radar.
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-statusshowUntrackedFiles
+        showUntrackedFiles = all
 [user]
 	name = Jon Erickson
 	email = jon@ericksn.com
