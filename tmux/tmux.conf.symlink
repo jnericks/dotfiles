@@ -3,6 +3,9 @@ set -g prefix C-a
 unbind C-b
 bind C-a send-prefix
 
+# turn on mouse scrolling
+set -g mouse on
+
 # force a reload of the config file
 unbind r
 bind r source-file ~/.tmux.conf \; display-message "Config reloaded.."

@@ -3,28 +3,35 @@
         # git extras --help
         # https://github.com/tj/git-extras/blob/master/Commands.md
 
-        aa              = add -A
-        cm              = !git add -A && git commit -a -m
-        ca              = !git add -A && git commit --amend --no-edit
-        cam             = !git add -A && git commit --amend
+        # source of some aliases are from Phil Haack
+        # https://haacked.com/archive/2014/07/28/github-flow-aliases/
 
-        ps              = push
-        psb             = push -u origin HEAD  # push current branch to remote with same name
+        a       = alias
 
-        pl              = pull --rebase
-        plm             = !git checkout master && git pull --rebase
-        mpl             = !git checkout master && git pull --rebase
+        cm      = !git add -A && git commit -m
+        amend   = !git add -A && git commit --amend
+        amendx  = !git add -A && git commit --amend --no-edit
 
-        co              = checkout
-        cob             = checkout -b
+        co      = checkout
+        cob     = checkout -b
 
-        rb              = rebase
+        ps      = push
 
-        b               = branch
-        l               = log --color=auto --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-        rhc             = !git reset --hard && git clean -dfx   # reset & clean working directory
-        root            = rev-parse --show-toplevel
-        s               = status -sb                            # short status, overrides ghostscript
+        up      = !git pull --rebase --prune $@ && git submodule update --init --recursive
+        mpl     = !git checkout master && git pull --rebase
+        mup     = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+
+        rb      = rebase
+
+        b       = branch
+        bps     = push -u origin HEAD                   # push current branch to remote with same name
+        bclean  = "!f() { git checkout ${1-master} && git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+        
+        rhc     = !git reset --hard && git clean -dfx   # reset & clean working directory
+        s       = status -sb                            # short status, overrides ghostscript
+
+        l       = log --color=auto --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        root    = rev-parse --show-toplevel             # root path
 
         # list branches sorted by last modified
         ls-branch = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
@@ -54,6 +61,9 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+
+        # diff-so-fancy strives to make your diff's human readable instead of machine readable
+        # https://github.com/so-fancy/diff-so-fancy
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [help]
         autoCorrect = 1
