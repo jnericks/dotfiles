@@ -53,6 +53,10 @@ local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 # %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 
 local battery_status='$(battery_pct_prompt)'
+local aws_profile=''
+if [ -n "${AWS_PROFILE}" ]; then
+  aws_profile="(${AWS_PROFILE}) "
+fi
 
 # Custom
 # PROMPT="
@@ -65,6 +69,7 @@ local battery_status='$(battery_pct_prompt)'
 # %{$terminfo[bold]$fg[red]%}›%{$reset_color%} "
 
 PROMPT="
+${aws_profile}\
 %{$fg[green]%}${git_user}%{$reset_color%} \
 [ %~ ]%{$reset_color%}\
 ${git_info}\

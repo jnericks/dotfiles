@@ -1,3 +1,5 @@
 #! /bin/bash
 
-alias awsprofiles='< ~/.aws/credentials grep -i "\\[" | cut -d "]" -f 1 | cut -d "[" -f 2'
+alias awsall="_awsListAll"
+alias awsp="_awsSwitchProfile"
+alias awswho="aws configure list"

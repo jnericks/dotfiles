@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 
-alias awscreds='cat $HOME/.aws/credentials'
 alias cls='clear'
 alias df='e $DOTFILES'
 alias rebuild-completions='rm -f ~/.zcompdump; compinit'
