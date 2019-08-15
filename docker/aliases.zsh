@@ -1,6 +1,5 @@
 #!/bin/bash
 #
 
-alias d="docker"
-alias dc="docker-compose"
-alias dm="docker-machine"
+alias docker-rm-containers='docker rm -f $(docker ps -a -q)'
+alias docker-rm-images='docker rmi -f $(docker images -q)'
