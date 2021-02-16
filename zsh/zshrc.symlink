@@ -53,3 +53,5 @@ then
 fi
 
 compinit
+
+export PATH=/Users/erjonath/.toolbox/bin:$PATH

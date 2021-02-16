@@ -1,10 +1,5 @@
 #!/bin/bash
 #
-# shellcheck disable=SC1090
-
-_reload_zsh_theme() {
-    . "$ZSH_THEME_FILE"
-}
 
 _check_cert_expiration() {
     # https://www.shellhacks.com/openssl-check-ssl-certificate-expiration-date/

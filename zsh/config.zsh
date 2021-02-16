@@ -16,9 +16,13 @@ SAVEHIST=10000
 HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
 DEFAULT_USER=qg3w
+
+# Custom Theme file
+# ZSH_THEME="jnericks"
+ZSH_THEME="dracula"
 ZSH_CUSTOM=$DOTFILES/zsh
-ZSH_THEME="jnericks"
 export ZSH_THEME_FILE="$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
+
 plugins=(aws battery brew command-not-found common-aliases docker go gradle history httpie jira node npm osx sudo tig wd web-search z zsh_reload)
 
 setopt NO_BG_NICE # don't nice background tasks

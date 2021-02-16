@@ -37,4 +37,4 @@ defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Change screenshot folder
-defaults write com.apple.screencapture location ~/Downloads
+defaults write com.apple.screencapture location ~/Screenshots
